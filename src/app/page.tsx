@@ -2,8 +2,8 @@ import QuadrantSelector from "@/components/QuadrantSelector";
 
 export default function Home() {
   return (
-    <main>
+    <div className="w-screen">
       <QuadrantSelector />
-    </main>
+    </div>
   );
 }
