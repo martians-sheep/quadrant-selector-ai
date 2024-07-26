@@ -1,0 +1,112 @@
+/* editor-style.css */
+
+.editor-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.editor-paragraph {
+  margin: 0 0 15px 0;
+}
+
+.editor-placeholder {
+  color: #999;
+  overflow: hidden;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.editor-heading-h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+  color: #333;
+}
+
+.editor-heading-h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0 10px 0;
+  color: #444;
+}
+
+.editor-quote {
+  border-left: 4px solid #ccc;
+  margin: 15px 0;
+  padding-left: 15px;
+  color: #666;
+  font-style: italic;
+}
+
+.editor-list-ol {
+  padding-left: 20px;
+}
+
+.editor-list-ul {
+  padding-left: 20px;
+}
+
+.editor-listitem {
+  margin: 5px 0;
+}
+
+.editor-link {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.editor-text-bold {
+  font-weight: bold;
+}
+
+.editor-text-italic {
+  font-style: italic;
+}
+
+.editor-text-underline {
+  text-decoration: underline;
+}
+
+.editor-text-strikethrough {
+  text-decoration: line-through;
+}
+
+.editor-code {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Code highlight styles */
+.editor-tokenComment {
+  color: slategray;
+}
+.editor-tokenPunctuation {
+  color: #999;
+}
+.editor-tokenProperty {
+  color: #905;
+}
+.editor-tokenSelector {
+  color: #690;
+}
+.editor-tokenOperator {
+  color: #9a6e3a;
+}
+.editor-tokenAttr {
+  color: #07a;
+}
+.editor-tokenVariable {
+  color: #e90;
+}
+.editor-tokenFunction {
+  color: #dd4a68;
+}
