@@ -1,8 +1,7 @@
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import type { File } from "@/types/types";
-import HomeClient from "@/components/ClientHome";
-import Tiptap from "@/components/Tiptap";
 import ClientHomeTiptap from "@/components/ClientHomeTiptap";
+import { QuadrantSelect } from "@/components/tiptap/QuardrantSelect";
 
 // サンプルファイルデータ
 const sampleFiles: File[] = [
@@ -47,6 +46,7 @@ export default async function Home({
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <QuadrantSelect />
       <ClientHomeTiptap
         fileContent={fileContent}
         selectedFile={selectedFile}

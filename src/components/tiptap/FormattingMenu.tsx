@@ -22,53 +22,67 @@ const FormattingMenu: React.FC<FormattingMenuProps> = ({ editor }) => {
   }
 
   return (
-    <div className="formatting-menu py-2 gap-2 flex items-center px-3 border-b">
+    <div className="formatting-menu py-2 divide-x divide-gray-200 flex items-center px-1 border-b">
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive("bold") ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("bold") ? "is-active" : ""
+        }`}
       >
         <Bold size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive("italic") ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("italic") ? "is-active" : ""
+        }`}
       >
         <Italic size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleUnderline().run()}
-        className={editor.isActive("underline") ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("underline") ? "is-active" : ""
+        }`}
       >
         <Underline size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive("bulletList") ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("bulletList") ? "is-active" : ""
+        }`}
       >
         <List size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive("orderedList") ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("orderedList") ? "is-active" : ""
+        }`}
       >
         <ListOrdered size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("heading", { level: 1 }) ? "is-active" : ""
+        }`}
       >
         <Heading1 size={18} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
+        className={`relative px-4 py-2  ${
+          editor.isActive("heading", { level: 2 }) ? "is-active" : ""
+        }`}
       >
         <Heading2 size={18} />
       </button>

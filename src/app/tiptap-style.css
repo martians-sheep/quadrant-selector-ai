@@ -8,6 +8,7 @@
   --gray-3: #808080;
   --purple: #9370db;
   --purple-contrast: #ba55d3;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .ProseMirror {
   background: #fff;
@@ -235,9 +236,11 @@
 /* Floating menu */
 .floating-menu {
   display: flex;
-  background-color: var(--gray-3);
+  border: 1px solid var(--gray-3);
+  background-color: var(--white);
   padding: 0.1rem;
   border-radius: 0.5rem;
+  box-shadow: var(--shadow);
 
   button {
     background-color: unset;
@@ -257,4 +260,45 @@
       }
     }
   }
+}
+
+.safe-html-content {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+.safe-html-content h1 {
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.safe-html-content p {
+  margin-bottom: 1em;
+}
+.safe-html-content strong {
+  font-weight: bold;
+  color: #2c3e50;
+}
+.safe-html-content em {
+  font-style: italic;
+  color: #34495e;
+}
+.safe-html-content u {
+  text-decoration: underline;
+  color: #3498db;
+}
+.safe-html-content ul,
+.safe-html-content ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+.safe-html-content li {
+  margin-bottom: 0.5em;
+}
+.safe-html-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+.safe-html-content a:hover {
+  text-decoration: underline;
 }
