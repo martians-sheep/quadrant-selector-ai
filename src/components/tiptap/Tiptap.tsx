@@ -6,6 +6,8 @@ import { ResizablePanel } from "../ui/resizable";
 import FormattingMenu from "./FormattingMenu";
 import Underline from "@tiptap/extension-underline";
 import BubbleMenu from "./BubbleMenu";
+import { DOMSerializer } from "prosemirror-model";
+import { extractAndJoinText } from "@/lib/tiptap-utils";
 
 const Tiptap = ({ content }: { content: string }) => {
   const editor = useEditor({
@@ -13,9 +15,15 @@ const Tiptap = ({ content }: { content: string }) => {
     content: content,
   });
 
-  console.log("editor:", editor?.getJSON(), editor?.state);
-  const state = editor?.state ?? {};
-  //console.log("state:", state,state.selection);
+  const state = editor?.state ?? null;
+  const contents = state?.selection.content();
+  console.log("content:", contents?.toJSON());
+  if (contents !== undefined && contents !== null) {
+    console.log(extractAndJoinText(contents?.toJSON()));
+  }
+  //const serializer = DOMSerializer.fromSchema(editor?.schema);
+  //const fragment = serializer.serializeFragment(slice.content);
+  //console.log(fragment);
 
   return (
     <ResizablePanel defaultSize={75} minSize={20}>

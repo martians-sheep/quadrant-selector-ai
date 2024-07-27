@@ -12,6 +12,7 @@ import {
 import type { File } from "@/types/types";
 import { useRouter } from "next/navigation";
 import Tiptap from "./tiptap/Tiptap";
+import { SelectedText } from "./tiptap/SelectedText";
 
 // サンプルファイルデータ
 const sampleFiles: File[] = [
@@ -59,6 +60,8 @@ export default async function ClientHomeTiptap({
       <ResizableHandle />
 
       <Tiptap content={fileContent} />
+      <ResizableHandle />
+        <SelectedText />
     </ResizablePanelGroup>
   );
 }

@@ -13,6 +13,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 export async function POST(request: NextRequest) {
   const { x, y, documentA } = await request.json();
   console.log("Received request with x:", x, "y:", y);
+  console.log("Document A:", documentA);
 
   const prompt = `
   以下の文書Aを解説してください。解説の対象者のレベルはX=${x}、具体性のレベルはY=${y}です。
@@ -82,21 +83,38 @@ export async function POST(request: NextRequest) {
      0.5: 実践的でハウツー的なトーン
      1: 極めて技術的で実装指向のトーン、具体的な手順やコードを多用
   
-  これらの指針に厳密に従って、文書Aの内容を解説してください。解説が完成したら、以下のJSON形式で結果を返してください：
+  これらの指針に厳密に従って、文書Aの内容を解説してください。解説が完成したら、必ずHTML形式で結果を返してください。HTMLの構造は以下のようにしてください：
   
-  {
-    "x": ${x},
-    "y": ${y},
-    "explanation": "ここに生成された解説を入れてください"
-  }
+  <html>
+  <head>
+      <title>文書A の解説</title>
+      <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          h1 { color: #2c3e50; }
+          .explanation { margin-bottom: 20px; }
+          .metadata { font-style: italic; color: #7f8c8d; }
+      </style>
+  </head>
+  <body>
+      <h1>文書A の解説</h1>
+      <div class="metadata">
+          <p>対象者レベル (X): ${x}</p>
+          <p>具体性レベル (Y): ${y}</p>
+      </div>
+      <div class="explanation">
+          <!-- ここに生成された解説を入れてください -->
+      </div>
+  </body>
+  </html>
   
-  文書A:
-  ${documentA}
+  文書A:${documentA}
   `;
 
   const encoder = new TextEncoder();
   const stream = new TransformStream();
   const writer = stream.writable.getWriter();
+
+  console.log(prompt);
 
   const processStream = async () => {
     try {
